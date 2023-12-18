@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { recipes } from './recipesDB';
+import { recipes } from '../recipesDB';
 
 const RecipesPage = () => {
     return (
