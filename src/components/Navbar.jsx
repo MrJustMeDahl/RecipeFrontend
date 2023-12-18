@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./Navbar.css";
+import "../styling/Navbar.css";
 
 const Navbar = () => {
 
   const [currentUser, setCurrentUser] = useState({
     username: "guest",
-    role: "guest", //skal lige rettes til så den tager et input fra backend
+    role: "writer", //skal lige rettes til så den tager et input fra backend
   });
 
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -23,6 +23,10 @@ const Navbar = () => {
     setIsUserDropdownOpen(false);
   };
 
+  const handleDropdownClick = (e) => {
+    e.stopPropagation();
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-left">
@@ -33,7 +37,11 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
       <button className="nav-button" onClick={handleUserDropdownToggle}>
-          User
+        {currentUser.role === "admin" && "Admin"}
+        {currentUser.role === "user" && "User"}
+        {currentUser.role === "writer" && "Writer"}
+        {currentUser.role === "guest" && "Guest"}
+          
           {isUserDropdownOpen && (
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
@@ -68,12 +76,14 @@ const Navbar = () => {
       <button className="nav-button" onClick={handleLoginDropdownToggle}>
           Login
           {isLoginDropdownOpen && (
-            <div className="dropdown-content login-dropdown">
+            <div className="dropdown-content login-dropdown"
+            onClick={handleDropdownClick}
+            >
               <form>
                 <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" />
+                <input type="text" id="username" name="username" placeholder="Username"/>
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" />
+                <input type="password" id="password" name="password" placeholder="Password" />
                 <button type="submit">Login</button>
               </form>
             </div>
