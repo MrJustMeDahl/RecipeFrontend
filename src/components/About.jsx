@@ -1,11 +1,9 @@
-import Navbar from "./Navbar";
-import "./About.css";
+import "../styling/About.css";
 
 const About = () => {
     return (
         <>
         
-        <Navbar />
         <div className="about">
         
         <h2 class="about-header">About Our Foodie Community</h2>

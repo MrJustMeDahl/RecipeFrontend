@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Navbar.css";
+import "../styling/Navbar.css";
 
 const Navbar = () => {
 
@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-left">
         <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="/about#">About</a>
         <a href="#">Contact</a>
         <a href="#">Sign Up</a>
       </div>
