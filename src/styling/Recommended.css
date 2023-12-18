@@ -1,0 +1,50 @@
+.recipes{
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.75);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.75);
+    background-color: #ddd;
+}
+
+.recipes-section {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling if content exceeds the container width */
+    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipes-div-div {
+    flex: 0 0 auto; /* Allow the item to shrink and grow as needed */
+    width: calc(20% - 20px); /* Set the width to 20% of the container width with gap taken into account */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    background-color: #ddd;
+    width: 100%;
+}
+
+

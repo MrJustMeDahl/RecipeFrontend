@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { recipes } from '../recipesDB';
+import "../styling/Recommended.css";
 
 const RecipesPage = () => {
     return (
-        <div>
+        <div class="recipes">
             <h1>Recipes</h1>
             <ul>
                 {recipes.map(recipe => (
