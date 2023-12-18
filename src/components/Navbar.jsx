@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="navbar-left">
         <a href="#">Home</a>
         <a href="/about#">About</a>
-        <a href="#">Contact</a>
+        <a href="/contact#">Contact</a>
         <a href="#">Sign Up</a>
       </div>
       <div className="navbar-right">
@@ -38,19 +38,19 @@ const Navbar = () => {
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
                 <>
-                <a href="#">Show recipies</a>
+                <a href="/recipes#">Show recipies</a>
                 <a href="#">See users/writers</a>
                 </>
               )}
               {currentUser.role === "user" && (
                 <>
-                <a href="#">Show recipies</a>
+                <a href="recipes#">Show recipies</a>
                 <a href="#">Show favorites</a>
                 </>
               )}
               {currentUser.role === "writer" && (
                 <>
-                <a href="#">Show recipies</a>
+                <a href="recipes#">Show recipies</a>
                 <a href="#">Show favorites</a>
                 <a href="#">Add new recipies</a>
                 <a href="#">Edit recipies</a>
@@ -58,7 +58,7 @@ const Navbar = () => {
               )}
               {currentUser.role === "guest" && (
                 <>
-                <a href="#">Show recipies</a>
+                <a href="recipes#">Show recipies</a>
                 </>
               )}
               

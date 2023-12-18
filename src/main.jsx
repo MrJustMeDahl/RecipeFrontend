@@ -4,13 +4,15 @@ import App from './App.jsx'
 import RecipesPage from './components/RecipesPage';
 import RecipeDetail from './components/RecipeDetails';
 import About from './components/About';
+import Contact from './components/Contact';
 import { RouterProvider, Route, createRoutesFromElements, createBrowserRouter } from 'react-router-dom'
 const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path= "/" element={<App />}>
-      <Route path="/" element={<RecipesPage />} />
+      <Route path="/recipes" element={<RecipesPage />} />
       <Route path="/recipe/:recipeId" element={<RecipeDetail />} />
       <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
     </Route>
   )
 )
