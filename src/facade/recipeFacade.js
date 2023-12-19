@@ -6,13 +6,13 @@ function recipeFacade() {
     return fetchData(URL + "/recipes", callback);
   };
   const getRecipe = (id, callback) => {
-    return fetchData(URL + "/recipes/{" + id + "}", callback);
+    return fetchData(URL + "/recipes/" + id, callback);
   };
   const addRecipe = (recipe, callback) => {
     return fetchData(URL + "/recipes", callback, "POST", recipe);
   };
-  const editRecipe = (recipe, callback) => {
-    return fetchData(URL + "/recipes", callback, "PUT", recipe);
+  const editRecipe = (id, recipe) => {
+    return fetchData(URL + "/recipes/" + id, callback, "PUT", recipe);
   };
   const deleteRecipe = (id, callback) => {
     return fetchData(URL + "/recipes/{" + id + "}", callback, "DELETE");
