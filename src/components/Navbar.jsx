@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styling/Navbar.css";
+import Modal from "./Modal";
 
 const Navbar = () => {
 
@@ -10,6 +11,7 @@ const Navbar = () => {
 
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const [isLoginDropdownOpen, setIsLoginDropdownOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleUserDropdownToggle = () => {
     console.log("User Dropdown has been clicked");
@@ -26,10 +28,9 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <a href="/about#">About</a>
         <a href="/contact#">Contact</a>
-        <a href="#">Sign Up</a>
       </div>
       <div className="navbar-right">
       <button className="nav-button" onClick={handleUserDropdownToggle}>
@@ -65,20 +66,21 @@ const Navbar = () => {
             </div>
           )}
         </button>
-      <button className="nav-button" onClick={handleLoginDropdownToggle}>
-          Login
-          {isLoginDropdownOpen && (
-            <div className="dropdown-content login-dropdown">
-              <form>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" />
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" />
+
+        <button className="nav-button-modal" onClick={() => setIsModalOpen(true)}>Login</button>
+
+        <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <label htmlFor="username"></label>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <input type="text" id="username" name="username" placeholder="Username" style={{marginBottom: '10px', border: 'groove'}}/>
+                <label htmlFor="password"></label>
+                <input type="password" id="password" name="password" placeholder="Password" style={{marginBottom: '10px', border: 'groove'}}/>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button type="submit">Login</button>
-              </form>
-            </div>
-          )}
-        </button>
+                <a href="#">Sign Up</a>
+                </div>
+        </Modal>
         <button className="nav-button">Log Out</button>
       </div>
       </div>
