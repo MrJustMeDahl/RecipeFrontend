@@ -34,7 +34,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
       <button className="nav-button" onClick={handleUserDropdownToggle}>
-          User
+          {currentUser.username}
           {isUserDropdownOpen && (
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
