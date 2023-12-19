@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const initialUser = {
     username: "guest",
-    role: "author"
+    role: "guest"
   };
 
   const [currentUser, setCurrentUser] = useState(initialUser);
