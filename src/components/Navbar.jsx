@@ -1,28 +1,25 @@
 import React, { useState } from "react";
 import "../styling/Navbar.css";
+import { Link } from 'react-router-dom';
 import Modal from "./Modal";
 
 const Navbar = () => {
 
-  const [currentUser, setCurrentUser] = useState({
+  const initialUser = {
     username: "guest",
-    role: "guest", //skal lige rettes til så den tager et input fra backend
-  });
+    role: "guest"
+  };
 
+  const [currentUser, setCurrentUser] = useState(initialUser);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
-  const [isLoginDropdownOpen, setIsLoginDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleUserDropdownToggle = () => {
-    console.log("User Dropdown has been clicked");
     setIsUserDropdownOpen(!isUserDropdownOpen);
-    setIsLoginDropdownOpen(false);
   };
 
-  const handleLoginDropdownToggle = () => {
-    console.log("Login Dropdown has been clicked");
-    setIsLoginDropdownOpen(!isLoginDropdownOpen);
-    setIsUserDropdownOpen(false);
+  const handleLogout = () => {
+    setCurrentUser(initialUser);
   };
 
   return (
@@ -33,8 +30,9 @@ const Navbar = () => {
         <a href="/contact#">Contact</a>
       </div>
       <div className="navbar-right">
+        <p>{currentUser.user}</p>
       <button className="nav-button" onClick={handleUserDropdownToggle}>
-          {currentUser.username}
+          {currentUser.role}
           {isUserDropdownOpen && (
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
@@ -43,13 +41,13 @@ const Navbar = () => {
                 <a href="/admin#">See users/writers</a>
                 </>
               )}
-              {currentUser.role === "user" && (
+              {currentUser.role === "reader" && (
                 <>
                 <a href="recipes#">Show recipies</a>
                 <a href="#">Show favorites</a>
                 </>
               )}
-              {currentUser.role === "writer" && (
+              {currentUser.role === "author" && (
                 <>
                 <a href="recipes#">Show recipies</a>
                 <a href="#">Show favorites</a>
@@ -72,16 +70,15 @@ const Navbar = () => {
         <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <label htmlFor="username"></label>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <input type="text" id="username" name="username" placeholder="Username" style={{marginBottom: '10px', border: 'groove'}}/>
-                <label htmlFor="password"></label>
+                <input type="text" id="username" name="username" placeholder="Username" style={{marginBottom: '10px', border: 'groove'}}/>  
                 <input type="password" id="password" name="password" placeholder="Password" style={{marginBottom: '10px', border: 'groove'}}/>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button type="submit">Login</button>
-                <a href="#">Sign Up</a>
+                <Link to="/signup">Sign Up</Link>
                 </div>
         </Modal>
-        <button className="nav-button">Log Out</button>
+        <button className="nav-button" onClick={handleLogout}>Log Out</button>
       </div>
       </div>
   );
