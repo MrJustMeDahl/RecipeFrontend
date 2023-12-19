@@ -1,0 +1,91 @@
+/* SignUp.css */
+.signup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.signup h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.signup form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #666;
+}
+
+.signup input[type="email"],
+.signup input[type="text"],
+.signup input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.signup input[type="email"]:focus,
+.signup input[type="text"]:focus,
+.signup input[type="password"]:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.signup button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #696969;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signup button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for checkbox label */
+.signup label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Custom style for the checkbox */
+.signup input[type="checkbox"] {
+    width: 20px; /* Size of the checkbox */
+    height: 20px; /* Size of the checkbox */
+    border: 1px solid #ddd; /* Border of the checkbox */
+    border-radius: 4px; /* Rounded corners for the checkbox */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Style for the text next to the checkbox */
+.signup label span {
+    margin-left: 8px; /* Space between checkbox and label text */
+}
+
+.signup div {
+    display: flex;
+    align-items: center; /* Vertically centers the checkbox and text */
+    gap: 10px; /* Space between the checkbox and the text */
+    margin-top: 15px; /* Space above the checkbox for visual separation */
+}
