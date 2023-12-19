@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <a href="/">Home</a>
+        <a href="/recommended#">Home</a>
         <a href="/about#">About</a>
         <a href="/contact#">Contact</a>
       </div>
