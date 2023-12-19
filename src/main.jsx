@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Admin from './components/Admin.jsx';
 import RecommendedRecipes from './components/RecommendedRecipes.jsx';
 import SignUp from './components/SignUp.jsx';
+import RecipeForm from './components/RecipeForm.jsx';
 import { RouterProvider, Route, createRoutesFromElements, createBrowserRouter } from 'react-router-dom'
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const routes = createBrowserRouter(
       <Route path="/recommended" element={<RecommendedRecipes />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/recipeform" element={<RecipeForm />} />
 
     </Route>
   )
