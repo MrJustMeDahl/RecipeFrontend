@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styling/Navbar.css";
+import { Link } from 'react-router-dom';
 import Modal from "./Modal";
 
 const Navbar = () => {
@@ -78,7 +79,7 @@ const Navbar = () => {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button type="submit">Login</button>
-                <a href="#">Sign Up</a>
+                <Link to="/signup">Sign Up</Link>
                 </div>
         </Modal>
         <button className="nav-button">Log Out</button>
