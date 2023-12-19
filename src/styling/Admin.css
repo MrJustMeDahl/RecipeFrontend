@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.75);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.75);
+    background-color: #ddd;
+    width: 100%;
+}
+
+.persons{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items:end;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.75);
+}
+
+
+.button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.75);
+    transition: all 0.3s ease-in-out;
+    margin-right: 0px;
+}
+.button:last-child{
+    margin-left: 0px;
+}
+
+.admin-h1{
+    text-align: center;
+    align-self: center;
+}

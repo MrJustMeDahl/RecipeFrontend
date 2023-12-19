@@ -5,6 +5,7 @@ import RecipesPage from './components/RecipesPage';
 import RecipeDetail from './components/RecipeDetails';
 import About from './components/About';
 import Contact from './components/Contact';
+import Admin from './components/Admin.jsx';
 import RecommendedRecipes from './components/RecommendedRecipes.jsx';
 import { RouterProvider, Route, createRoutesFromElements, createBrowserRouter } from 'react-router-dom'
 const routes = createBrowserRouter(
@@ -15,6 +16,7 @@ const routes = createBrowserRouter(
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/recommended" element={<RecommendedRecipes />} />
+      <Route path="/admin" element={<Admin />} />
     </Route>
   )
 )

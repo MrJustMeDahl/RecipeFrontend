@@ -40,7 +40,7 @@ const Navbar = () => {
               {currentUser.role === "admin" && (
                 <>
                 <a href="/recipes#">Show recipies</a>
-                <a href="#">See users/writers</a>
+                <a href="/admin#">See users/writers</a>
                 </>
               )}
               {currentUser.role === "user" && (
