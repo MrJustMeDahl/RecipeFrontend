@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "../styling/SignUp.css";
+import loginFacade from "../facade/loginFacade";
 
 const SignUp = () => {
+
+    const { register } = loginFacade;
+
     const [newUser, setNewUser] = useState({ 
         email: "",
         name: "",
@@ -11,7 +15,12 @@ const SignUp = () => {
 
  const handleSubmission = (event) => {
     event.preventDefault();
-    console.log('User signed up', newUser);
+    if(newUser.isAuthor){
+        register(newUser.email, newUser.password, newUser.name, 'author');
+    } else {
+        register(newUser.email, newUser.password, newUser.name, 'reader');
+    }
+    
     setNewUser({
         email: "",
         name: "",
