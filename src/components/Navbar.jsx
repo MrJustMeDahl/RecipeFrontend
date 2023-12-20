@@ -65,7 +65,7 @@ const Navbar = () => {
           )}
         </button>
 
-        <button className="nav-button-modal" onClick={() => setIsModalOpen(true)}>Login</button>
+        <button className="nav-button" onClick={() => setIsModalOpen(true)}>Login</button>
 
         <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <label htmlFor="username"></label>
