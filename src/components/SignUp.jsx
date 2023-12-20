@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../styling/SignUp.css";
 import loginFacade from "../facade/loginFacade";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+    const navigate = useNavigate();
 
     const { register } = loginFacade;
 
@@ -26,6 +28,7 @@ const SignUp = () => {
         name: "",
         password: "",
     });
+    navigate('/');
  };
 
  const handleInputChange = (event) => {
@@ -68,8 +71,7 @@ const SignUp = () => {
                     checked={newUser.isAuthor}
                     onChange={handleChekboxChange}
                 /> I want to be an author</div>
-            
-            <button type="submit">Sign Up</button>
+                <button type="submit">Sign Up</button>
         </form>
     </div>
     );
