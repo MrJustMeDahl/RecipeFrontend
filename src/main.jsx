@@ -10,6 +10,7 @@ import RecommendedRecipes from './components/RecommendedRecipes.jsx';
 import SignUp from './components/SignUp.jsx';
 import RecipeForm from './components/RecipeForm.jsx';
 import { RouterProvider, Route, createRoutesFromElements, createBrowserRouter } from 'react-router-dom'
+
 const routes = createBrowserRouter(
   createRoutesFromElements(
       <Route path= "/" element={<App />}>
