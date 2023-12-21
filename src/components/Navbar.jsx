@@ -6,11 +6,11 @@ import loginFacade from "../facade/loginFacade";
 
 const Navbar = () => {
 
-  const { logout, isLoggedIn } = loginFacade;
+  const { logout, isLoggedIn} = loginFacade;
 
   const initialUser = {
     username: "guest",
-    role: "guest"
+    role: "author"
   };
 
   const [currentUser, setCurrentUser] = useState(initialUser);
@@ -41,19 +41,19 @@ const Navbar = () => {
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
                 <>
-                <a href="/recipes#">Show recipies</a>
-                <a href="/admin#">See users/writers</a>
+                <a href="/recipes">Show recipies</a>
+                <a href="/admin">See users/writers</a>
                 </>
               )}
               {currentUser.role === "reader" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 <a href="#">Show favorites</a>
                 </>
               )}
               {currentUser.role === "author" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 <a href="#">Show favorites</a>
                 <a href="#">Add new recipies</a>
                 <a href="#">Edit recipies</a>
@@ -61,7 +61,7 @@ const Navbar = () => {
               )}
               {currentUser.role === "guest" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 </>
               )}
               
@@ -81,7 +81,7 @@ const Navbar = () => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <button type="submit">Login</button>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup" onClick={() => setIsModalOpen(false)}>Sign Up</Link>
             </div>
           </Modal> 
         </div>
