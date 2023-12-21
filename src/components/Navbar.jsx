@@ -69,19 +69,19 @@ const Navbar = ({currentUser, setCurrentUser}) => {
             <div className="dropdown-content">
               {currentUser.role === "admin" && (
                 <>
-                <a href="/recipes#">Show recipies</a>
-                <a href="/admin#">See users/writers</a>
+                <a href="/recipes">Show recipies</a>
+                <a href="/admin">See users/writers</a>
                 </>
               )}
               {currentUser.role === "reader" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 <a href="#">Show favorites</a>
                 </>
               )}
               {currentUser.role === "author" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 <a href="#">Show favorites</a>
                 <a href="#">Add new recipies</a>
                 <a href="#">Edit recipies</a>
@@ -89,7 +89,7 @@ const Navbar = ({currentUser, setCurrentUser}) => {
               )}
               {currentUser.role === "guest" && (
                 <>
-                <a href="recipes#">Show recipies</a>
+                <a href="recipes">Show recipies</a>
                 </>
               )}
               
@@ -108,7 +108,7 @@ const Navbar = ({currentUser, setCurrentUser}) => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <button type="submit" onClick={handleLogin}>Login</button>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup" onClick={() => setIsModalOpen(false)}>Sign Up</Link>
             </div>
           </Modal> 
         </div>
