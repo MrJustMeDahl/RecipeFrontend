@@ -88,12 +88,23 @@ function loginFacade() {
         localStorage.removeItem('username');
     }
 
+    const getUserRole = () => {
+        const token = getToken();
+        if(isLoggedIn){
+            const payloadBase64 = token.split('.')[1];
+            const decodeClaims = JSON.parse(window.atob(payloadBase64));
+            const role = decodeClaims.role;
+            return role;
+        }
+    }
+
     return {
         login,
         isLoggedIn,
         getToken,
         logout,
         register,
+        getUserRole,
     };
 }
 

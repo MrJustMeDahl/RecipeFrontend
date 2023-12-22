@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "../styling/SignUp.css";
 import loginFacade from "../facade/loginFacade";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 const SignUp = () => {
     const navigate = useNavigate();
 
-    const { register } = loginFacade;
+    const { register, getUserRole } = loginFacade;
+
+    const [currentUser, setCurrentUser] = useOutletContext();
 
     const [newUser, setNewUser] = useState({ 
         email: "",
@@ -15,20 +17,26 @@ const SignUp = () => {
         isAuthor: false
  });
 
- const handleSubmission = (event) => {
+ const handleSubmission = async (event) => {
     event.preventDefault();
     if(newUser.isAuthor){
-        register(newUser.email, newUser.password, newUser.name, 'author');
+       await register(newUser.email, newUser.password, newUser.name, 'author');
     } else {
-        register(newUser.email, newUser.password, newUser.name, 'reader');
+       await register(newUser.email, newUser.password, newUser.name, 'reader');
     }
+    
+    const user = {
+        username: localStorage.getItem('username'),
+        role: getUserRole(),
+      }
+    setCurrentUser(user);
     
     setNewUser({
         email: "",
         name: "",
         password: "",
     });
-    navigate('/');
+    navigate('/recommended');
  };
 
  const handleInputChange = (event) => {
