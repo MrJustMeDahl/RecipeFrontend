@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import recipeFacade from '../facade/recipeFacade';
+import loginFacade from "../facade/loginFacade";
 
 const RecipeForm = () => {
+    const URL = "http://localhost:7070/api/recipes";
+
     const [recipe, setRecipe] = useState(null);
     const [name, setName] = useState(recipe ? recipe.name : '');
     const [description, setDescription] = useState(recipe ? recipe.description : '');
@@ -13,21 +16,11 @@ const RecipeForm = () => {
     const [personId, setPersonId] = useState(null);
 
     useEffect(() => {
-        // Assuming your JWT token is stored as 'token' in localStorage
-        const token = localStorage.getItem('token');
-        if (token) {
+        // Assuming your JWT token is stored as 'token' in localStorage        
             // Decode the JWT token to get the person's ID
-            const decodedToken = decodeToken(token);
-            setPersonId(decodedToken.personId);
-        }
+            setPersonId(localStorage.getItem('userID'));        
     }, []);
 
-    const decodeToken = (token) => {
-        // Your decoding logic goes here (use a library like jsonwebtoken)
-        // For simplicity, assuming a token structure like { personId: '123' }
-        const decoded = JSON.parse(atob(token.split('.')[1]));
-        return decoded;
-    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,12 +33,12 @@ const RecipeForm = () => {
             // Split the tagsInput into an array of tags
             const tagsArray = tagsInput.split(/[\s,]+/);
             setTags(tagsArray)
-            setPersonId
             // Include personId as author in the recipe data
             setRecipe({ name, description, ingredients, instructions, author: personId, tags: tagsArray});
 
             // Add the recipe with author to the backend
-            recipeFacade.addRecipe({ name, description, ingredients, instructions, author: personId, tags: tagsArray});
+            //recipeFacade.addRecipe({ name, description, ingredients, instructions, author: personId, tags: tagsArray});
+            recipeFacade.fetchDataNew(URL,"POST", recipe);
         }
     };
 

@@ -1,3 +1,5 @@
+import loginFacade from "./loginFacade.js";
+
 export function fetchData(url, callback, method, body) {
   const headers = {
     Accept: "application/json",
@@ -5,6 +7,7 @@ export function fetchData(url, callback, method, body) {
 
   if (method === "POST" || method === "PUT") {
     headers["Content-Type"] = "application/json";
+    headers["Authorization"] = "Bearer " + loginFacade.getToken;
   }
 
   const options = {
