@@ -1,13 +1,20 @@
 import React from 'react';
-import Navbar from './components/Navbar'; // Import the Navbar component
+import Navbar from './components/Navbar';
 import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState({
+    username: '',
+    role: 'guest'
+  });
+
   return (
 <>
-<Navbar />
+<Navbar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
 <hr />
-<Outlet />
+<Outlet context={[currentUser, setCurrentUser]}/>
 </>
   );
 }

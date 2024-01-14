@@ -1,26 +1,42 @@
 // RecipeDetail.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { recipes } from '../recipesDB';
+import recipeFacade from '../facade/recipeFacade';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const RecipeDetail = () => {
     const { recipeId } = useParams();
-    const recipe = recipes.find(r => r.id.toString() === recipeId);
+    const [recipe, setRecipe] = useState([]);
+    useEffect(() => {
+        recipeFacade.getRecipe(recipeId,(data)=>setRecipe(data));
+    }, []);
 
     if (!recipe) {
         return <div>Recipe not found</div>;
     }
 
     return (
-        <div>
+        <div class="recipes">
             <h1>{recipe.name}</h1>
+            <p>{recipe.description}</p>
+            <div class="recipes-flex-h3">
             <h3>Ingredients</h3>
-            <ul>
-                {recipe.items.split(' ').map((ingredient, index) => (
-                    <li key={index}>{ingredient}</li>
+            <h3>Instructions</h3>
+            </div>
+            <div class="recipes-flex">
+            
+            {recipe.ingredients && (
+            <ul className="ingri-instruct ingredients">
+                {recipe.ingredients.trim().split(',').map((ingredient, index) => (
+                 <li key={index}>{ingredient}</li>
                 ))}
             </ul>
-            <p>{recipe.description}</p>
+            )}
+            
+            
+            <p class="ingri-instruct instructions">{recipe.instructions}</p>
+            </div>
         </div>
     );
 }
